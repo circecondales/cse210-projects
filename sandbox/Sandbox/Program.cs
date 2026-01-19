@@ -42,8 +42,8 @@ class Program
         }
         if (userList.Count > 0)
         {
-            int sumaTotal = userNumber.Sum();
-            int maxxNumber = userNumber.Max();
+            int sumaTotal = userList.Sum();
+            int maxxNumber = userList.Max();
 
             Console.WriteLine("--------result------");
             Console.WriteLine($"Suma Total: {sumaTotal}");
