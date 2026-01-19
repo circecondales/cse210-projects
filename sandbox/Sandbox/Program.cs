@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq; //necesario para usar suma
+using System.Linq;
 
 class Program
 {
@@ -13,13 +14,15 @@ class Program
         //string fName = Console.ReadLine();
 
         //Console.WriteLine($"Your name is {lName}, {fName} {lName}.");
-        List<int> userList= new List<int>();
-        
-        int userNumber = -1;
-        while (userNumber != 0)
+        List<int> userList = new List<int>();
+
+        int userNumber = -1; // Inicializamos para que entre al bucle
+        while (userNumber != 0) // BUCLE DE ENTRADA
         {
             Console.WriteLine("Enter a list of numbers, type 0 when finished ");
-            if (int.TryParse(Console.ReadLine))
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out userNumber))
             {
                 if (userNumber > 0)
                 {
@@ -34,9 +37,10 @@ class Program
             {
                 Console.WriteLine(" Enter a valid umber: ");
             }
-// Verificamos si la lista tiene elementos antes de procesar
+        // PROCESAMIENTO DE RESULTADOS
+        // Usamos userList.Count para verificar si hay datos, no userNumber
         }
-        if (userNumber > 0)
+        if (userList.Count > 0)
         {
             int sumaTotal = userNumber.Sum();
             int maxxNumber = userNumber.Max();
