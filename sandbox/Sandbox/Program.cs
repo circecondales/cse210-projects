@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using System.Linq; //necesario para usar suma
 
 class Program
 {
@@ -12,29 +13,41 @@ class Program
         //string fName = Console.ReadLine();
 
         //Console.WriteLine($"Your name is {lName}, {fName} {lName}.");
-        Random RandomGeneration = new Random();
-        int magicNumber = RandomGeneration.Next(1,101);
-
-        int guess = -1;
-
-        while (guess != magicNumber)
+        List<int> userList= new List<int>();
+        
+        int userNumber = -1;
+        while (userNumber != 0)
         {
-            Console.Write("What is the magic number? ");
-            guess = int.Parse(Console.ReadLine());
-
-            if (magicNumber > guess)
+            Console.WriteLine("Enter a list of numbers, type 0 when finished ");
+            if (int.TryParse(Console.ReadLine))
             {
-                Console.WriteLine("Higher");
-            }
-            else if(magicNumber < guess)
-            {
-                Console.WriteLine("Lower");
+                if (userNumber > 0)
+                {
+                    userList.Add(userNumber);
+                }
+                else
+                {
+                    break;
+                }
             }
             else
             {
-                Console.WriteLine("You guess it");
+                Console.WriteLine(" Enter a valid umber: ");
             }
+// Verificamos si la lista tiene elementos antes de procesar
         }
+        if (userNumber > 0)
+        {
+            int sumaTotal = userNumber.Sum();
+            int maxxNumber = userNumber.Max();
 
+            Console.WriteLine("--------result------");
+            Console.WriteLine($"Suma Total: {sumaTotal}");
+            Console.WriteLine($" Largest Number: {maxxNumber}");
+        }
+        else
+        {
+            Console.WriteLine("No valid numbers added");
+        }
     }
 }
