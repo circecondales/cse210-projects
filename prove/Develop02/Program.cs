@@ -21,6 +21,8 @@ class Program
                 switch (choice)
                 {
                     case 1:
+//Use the PromptGenerator class to get a random question.
+
                     string prompt = promptGenerator.GeneratePrompt();
                     Console.WriteLine(prompt);
                     Console.WriteLine("> ");
@@ -35,11 +37,11 @@ class Program
                     };
                     journal.AddEntry(newEntry);
                     break;
-
+//Call the DisplayAll() method of the Journal class, which is responsible for printing all stored entries.
                     case 2:
                     journal.DisplayAll();
                     break;
-
+//(Cases 3 and 4): Prompts the user for a file name and uses theJournal methods to interact with the hard drive.
                     case 3:
                     Console.WriteLine("File name: ");
                     journal.LoadFromFile(Console.ReadLine());
@@ -55,5 +57,24 @@ class Program
 
 
         }
+    }
+}
+//GetRandomPrompt(): Uses the Random class in C# to select a random index from the list.
+public class PromptGenerator
+{
+    public List<string> _prompts = new List<string>
+    {
+        "Who was the most interesting person I interacted with today?",
+        "What was the best part of my day?",
+        "How did I see the hand of the Lord in my life today?",
+        "What was the strongest emotion I felt today?",
+        "If I had one thing I could do over today, what would it be?",
+        "What is one thing I am grateful for right now?"
+    };
+    public string GetRandomPrompt()
+    {
+        Random random = new Random();
+        int index = random.Next(_prompts.Count);
+        return _prompts[index];
     }
 }
