@@ -50,7 +50,7 @@ class Program
                     case 4:
                     Console.Write("File name to save: ");
                     string filename = Console.ReadLine();
-                    journal.SaveToFile(filename);
+                    journal.SaveToFile(filename); //it will create .txt file
                     break;
                 }
 
