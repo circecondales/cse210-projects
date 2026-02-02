@@ -22,7 +22,7 @@ public class Journal
         {
             foreach (var entry in _entries)
             {
-                sw.WriteLine($"{entry._date}~|~{entry._entryTex}~|~{entry._promptText}");
+                sw.WriteLine($"{entry._date}~|~{entry._entryText}~|~{entry._promptText}");
             }
         }
     }
@@ -35,7 +35,7 @@ public class Journal
             string[] parts = line.Split(new[]{"~|~"}, StringSplitOptions.None); //Take a line, find the separator ~|~, and divide the text into “parts.”
             Entry newEntry = new Entry();
             newEntry._date = parts[0];
-            newEntry._entryTex = parts[1];
+            newEntry._entryText = parts[1];
             newEntry._promptText = parts[2];
 
             _entries.Add(newEntry);

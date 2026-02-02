@@ -16,14 +16,14 @@ class Program
             Console.Write("\n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\nWhat would you like to do?");
             Console.WriteLine("What would you like to do?");
 
-            if (int.Parse(Console.Readline(), out choice))
+            if (int.TryParse(Console.ReadLine(), out choice))
             {
                 switch (choice)
                 {
                     case 1:
 //Use the PromptGenerator class to get a random question.
 
-                    string prompt = promptGenerator.GeneratePrompt();
+                    string prompt = promptGenerator.GetRandomPrompt();
                     Console.WriteLine(prompt);
                     Console.WriteLine("> ");
                     string response = Console.ReadLine();
@@ -33,7 +33,7 @@ class Program
                     {
                         _date = date,
                         _promptText = prompt,
-                        _entryTex = response
+                        _entryText = response
                     };
                     journal.AddEntry(newEntry);
                     break;
@@ -48,8 +48,8 @@ class Program
                     break;
 
                     case 4:
-                    Console.WriteLine("File name: ");
-                    journal.LoadFromFile(Console.ReadLine());
+                    Console.WriteLine("File name to save: ");
+                    journal.SaveToFile(Console.ReadLine());
                     break;
                 }
 
