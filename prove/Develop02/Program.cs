@@ -13,7 +13,7 @@ class Program
         while (choice != 5)
         {
             Console.WriteLine("Please select one of the following choices: ");
-            Console.Write("\n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\nWhat would you like to do?");
+            Console.Write("\n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\n ");
             Console.WriteLine("What would you like to do?");
 
             if (int.TryParse(Console.ReadLine(), out choice))
