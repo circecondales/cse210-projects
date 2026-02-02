@@ -48,8 +48,9 @@ class Program
                     break;
 
                     case 4:
-                    Console.WriteLine("File name to save: ");
-                    journal.SaveToFile(Console.ReadLine());
+                    Console.Write("File name to save: ");
+                    string filename = Console.ReadLine();
+                    journal.SaveToFile(filename);
                     break;
                 }
 

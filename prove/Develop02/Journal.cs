@@ -18,11 +18,15 @@ public class Journal
     }
     public void SaveToFile(string filename)
     {
-        using (StreamWriter sw = new StreamWriter(filename))
+        Console.WriteLine("Saving to File............. ");
+
+        //string filename = "myFile.txt";
+
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (var entry in _entries)
             {
-                sw.WriteLine($"{entry._date}~|~{entry._entryText}~|~{entry._promptText}");
+                outputFile.WriteLine($"{entry._date}~|~{entry._entryText}~|~{entry._promptText}");
             }
         }
     }
