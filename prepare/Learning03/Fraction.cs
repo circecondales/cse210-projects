@@ -24,5 +24,12 @@ class Fraction
     {
         Console.WriteLine($"{_bottom}, {_top}");
     }
-    public GetFractionString int GetTop()
+    public string GetFractionString() // Devuelve la fracción como una cadena: "3/4"
+    {
+        return $"{_bottom}/{_top}";
+    }
+    public double GetDecimalValue() // Devuelve el valor decimal: 0.75
+    {
+        return _bottom / _top; // Forzamos que la operación use doubles para obtener decimales
+    }
 }
