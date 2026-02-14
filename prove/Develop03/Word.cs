@@ -16,13 +16,13 @@ public class Word
     }
     public void Hide() = _isHidden = true;
     public void Show() = _isHidden = false;
-    public bool IsHidden();
+    public bool IsHidden() = _isHidden;
     public string GetDisplayText()
     {
         if (_isHidden)
         {
             // Crea una cadena de guiones bajos de la misma longitud que la palabra
-            return new string("_", _text.Length);
+            return new string('_', _text.Length);
         }
         return _text;
     }
