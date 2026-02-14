@@ -19,7 +19,7 @@ public class Scriptures
         foreach (string wordText in splitText) /*Crea una lista vacía de palabras
 3️⃣ Divide el texto en palabras usando espacios*/
         {
-            _words.Add(Word.Parse(wordText)); //Convierte cada palabra en un objeto Word
+            _words.Add(new Word(wordText)); //Convierte cada palabra en un objeto Word
         }
     }
     public void HideRandomWords(int numberToHide) //Sirve para ocultar palabras al azar.
