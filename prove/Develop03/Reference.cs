@@ -14,14 +14,14 @@ public class Reference
     // Constructor para un solo versículo (ej. Juan 3:16)
     public Reference(string book, int chapter, int verse)
     {
-        _book = book;
-        _chapter = chapter;
-        _verse = verse;
-        _endVerse = verse; // end is the same at the begining
+        _book = book; //"juan"
+        _chapter = chapter; //3
+        _verse = verse; //16
+        _endVerse = verse; // tambien 16 -end is the same at the begining = Si solo es un versículo, el inicio y el final son iguales.
     }
-    public string GetDisplayText()
+    public string GetDisplayText() //Este método devuelve el texto listo para mostrarse
     {
-        if (_verse == _endVerse)
+        if (_verse == _endVerse) //Si el versículo inicial y final son iguales:
         {
             return $"{_book} {_chapter}: {_verse}";
         }

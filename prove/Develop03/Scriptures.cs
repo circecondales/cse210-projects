@@ -16,16 +16,17 @@ public class Scriptures
 
         // Dividimos el texto por espacios y creamos objetos Word
         string[] splitText = text.Split();
-        foreach (string wordText in splitText)
+        foreach (string wordText in splitText) /*Crea una lista vacía de palabras
+3️⃣ Divide el texto en palabras usando espacios*/
         {
-            _words.Add(Word.Parse(wordText));
+            _words.Add(Word.Parse(wordText)); //Convierte cada palabra en un objeto Word
         }
     }
-    public void HideRandomWords(int numberToHide)
+    public void HideRandomWords(int numberToHide) //Sirve para ocultar palabras al azar.
     {
         Random random = new Random();
 
-        // Get visible words (not hidden)
+        // Get visible words (not hidden) Oculta cierta cantidad de palabras al azar sin repetirlas.
         List<Word> visibleWords = _words.Where(word => !word.IsHidden()).ToList();
         int toHide = Math.Min(numberToHide, visibleWords.Count);
 
@@ -37,13 +38,13 @@ public class Scriptures
         }
     }
 
-    public string GetDisplayText()
-    {
+    public string GetDisplayText()//Construye el texto para mostrar en pantalla.
+    {   //Junta todas las palabras:
         string scriptureText = string.Join(" ", _words.Select(word => word.GetDisplayText()));
         return $"{_reference.GetDisplayText()} - {scriptureText}";
     }
 
-    public bool IsCompletelyHidden()
+    public bool IsCompletelyHidden()//Revisa si todas las palabras están ocultas.
     {
         return _words.All(word => word.IsHidden());
     }
