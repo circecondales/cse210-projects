@@ -14,9 +14,9 @@ public class Word
         _isHidden = false; // Por defecto, las palabras comienzan visibles
 
     }
-    public void Hide() = _isHidden = true;
-    public void Show() = _isHidden = false;
-    public bool IsHidden() = _isHidden;
+    public void Hide() => _isHidden = true;
+    public void Show() => _isHidden = false;
+    public bool IsHidden() => _isHidden;
     public string GetDisplayText()
     {
         if (_isHidden)
