@@ -18,8 +18,19 @@ class Program //This is where we bring everything together so that the user can 
             //user input
             Console.WriteLine("\nPress Enter to hide words or type 'quit' to finish: ");
             
+            input = Console.ReadLine();
+            if (input.ToLower() != "quit")
+            {
+                scriptures.HideRandomWords(3);// hide 3 words per turn
+            }
         }
-
-
+        //end
+        Console.Clear();
+        /*scripture es un objeto.
+        GetDisplayText() es un método que devuelve un texto (string).
+        Console.WriteLine() imprime ese texto en la consola y luego hace 
+        un salto de línea.*/
+        Console.WriteLine(scriptures.GetDisplayText());
+        Console.WriteLine("\nProgram END.........");
     }
 }
