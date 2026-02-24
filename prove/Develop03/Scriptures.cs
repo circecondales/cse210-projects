@@ -27,26 +27,49 @@ public class Scriptures
         Random random = new Random();
 
         // Get visible words (not hidden) Oculta cierta cantidad de palabras al azar sin repetirlas.
-        List<Word> visibleWords = _words.Where(word => !word.IsHidden()).ToList();
-        int toHide = Math.Min(numberToHide, visibleWords.Count);
+        List<Word> visibleWords = new List<Word>();
 
+        foreach (Word word in _words)
+        {
+            if (!word.IsHidden())
+            {
+                visibleWords.Add(word);
+            }
+        }
+        int toHide = Math.Min(numberToHide, visibleWords.Count);
         for (int i = 0; i < toHide; i++)
         {
             int index = random.Next(visibleWords.Count);
             visibleWords[index].Hide();
-            visibleWords.RemoveAt(index); // Avoid selecting the same word twice
+            visibleWords.RemoveAt(index);
         }
     }
 
     public string GetDisplayText()//Construye el texto para mostrar en pantalla.
     {   //Junta todas las palabras:
-        string scriptureText = string.Join(" ", _words.Select(word => word.GetDisplayText()));
+        List<string> wordsToJoin = new List<string>();
+        foreach (Word word in _words)
+        {
+            wordsToJoin.Add(word.GetDisplayText());
+        }
+        string scriptureText = string.Join(" ", wordsToJoin);
         return $"{_reference.GetDisplayText()} - {scriptureText}";
     }
 
     public bool IsCompletelyHidden()//Revisa si todas las palabras están ocultas.
     {
-        return _words.All(word => word.IsHidden());
+        foreach (Word word in _words)
+        {
+            if (!word.IsHidden())
+            {
+
+                 return false;
+
+            }
+        }
+        return true;
     }
 
 }
+
+

@@ -11,12 +11,20 @@ public class Word
     public Word(string text)
     {
         _text = text;
-        _isHidden = false; // Por defecto, las palabras comienzan visibles
-
+        _isHidden = false;// Por defecto, las palabras comienzan visibles
     }
-    public void Hide() => _isHidden = true;
-    public void Show() => _isHidden = false;
-    public bool IsHidden() => _isHidden;
+    public void Hide()
+    {
+        _isHidden = true;
+    }
+    public void Show()
+    {
+        _isHidden = false;
+    }
+    public bool IsHidden()
+    {
+        return _isHidden;
+    }
     public string GetDisplayText()
     {
         if (_isHidden)
