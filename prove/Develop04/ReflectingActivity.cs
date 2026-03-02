@@ -15,7 +15,11 @@ public class ReflectingActivity : Activity
         "Why was this experience meaningful to you?",
         "Have you ever done anything like this before?"
     };
-    public ReflectingActivity() : base ("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life"){}
+    public ReflectingActivity() : base(
+        "Reflecting Activity",
+        "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life",
+        60 // You can change the default duration as needed
+    ){}
 
     public void Run()
     {
@@ -33,5 +37,11 @@ public class ReflectingActivity : Activity
             ShowSpinner(4);
         }
         DisplayEndingMessage();
+    }
+
+    private void DisplayEndingMessage()
+    {
+        Console.WriteLine("\nWell done! You have completed the Reflecting Activity.");
+        Console.WriteLine($"You spent {_duration} seconds reflecting.");
     }
 }

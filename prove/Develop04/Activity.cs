@@ -28,10 +28,10 @@ public class Activity
         Console.WriteLine("Start");
         ShowSpinner(3);
     }
-    public void ShowSpinner(int count)
+    public void ShowSpinner(int seconds)
     {
         List<string> animation = new List<string>{"|", ":(", ":)", ";)"};
-        DateTime dateTime = DateTime.Now;
+        DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
 
         int i = 0;
